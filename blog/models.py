@@ -4,4 +4,5 @@ from django.conf import settings
 
 class profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT,)
+    website = models.URLFIELD(blank=True)
     
