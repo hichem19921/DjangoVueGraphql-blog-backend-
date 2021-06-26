@@ -1,13 +1,13 @@
 from django.conf import settings
 from graphene_django import DjangoObjectType
-
-from blog import models
+from django.contrib.auth import get_user_model
+from . import models
 
 import graphene
 
 class UserType(DjangoObjectType):
     class Meta:
-        model = settings.AUTH_USER_MODEL
+        model = get_user_model()
 
 class AuthorType(DjangoObjectType):
     class Meta:
@@ -64,3 +64,5 @@ class Query(graphene.ObjectType):
             .select_related("author")
             .filter(tags__name__iexact=tag)
         )
+
+schema = graphene.Schema(query=Query)

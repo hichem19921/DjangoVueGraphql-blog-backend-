@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 GRAPHENE = {
   "SCHEMA": "blog.schema.schema",
+  
 }
 
 MIDDLEWARE = [
